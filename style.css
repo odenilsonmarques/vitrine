@@ -1,0 +1,73 @@
+/*
+Theme Name: Vitrine
+Version: 1.0
+Author: Odenilson Marques
+Author URI: https://github.com/odenilsonmarques
+Description: Tema WordPress desenvolvido para vitrines digitais e sites institucionais de negócios locais, com foco em design moderno,
+Template: storefront
+Text Domain: vitrine
+
+Tags: custom-logo, custom-header, custom-background, footer-widgets, translation-ready, responsive-layout, full-width-template, featured-images, e-commerce, clean-design, modern-layout
+*/
+
+.main-menu {
+    background-color: #565b68;
+}
+.main-menu a.navbar-brand {
+    color: #b4d518;
+    font-size: 22px;
+}
+a.navbar-brand:focus {
+    outline: none;
+    /* box-shadow: none; */
+}
+.main-menu a.navbar-brand:hover {
+    color: #b4d518;
+}
+.main-menu ul {
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 5px;
+}
+.main-menu li {
+    margin-right: 20px;
+}
+.main-menu li:last-child {
+    /* Remove o margin do último item para evitar espaçamento extra */
+    margin-right: 0;
+}
+.main-menu li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.main-menu li a:focus {
+    outline: none;
+    /* Remove o contorno padrão do link */
+    box-shadow: none;
+    /* Remove o efeito de sombra ao focar no link */
+}
+.main-menu li a:hover {
+    color: #b4d518;
+}
+.main-menu li a svg {
+    margin-right: 4px;
+    transition: fill 0.3s;
+}
+.main-menu li a:hover svg {
+    fill: #b4d518;
+}
+button.btn-custom-buscar {
+    background-color: #b4d518;
+    border: none;
+    color: #212529;
+    /* texto escuro para bom contraste */
+    transition: background-color 0.3s ease;
+}
+button.btn-custom-buscar:hover {
+    background-color: #a0c116;
+    /* tom um pouco mais escuro ao passar o mouse */
+    color: #000;
+}
