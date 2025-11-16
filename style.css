@@ -13,29 +13,36 @@ Tags: custom-logo, custom-header, custom-background, footer-widgets, translation
 .main-menu {
     background-color: #565b68;
 }
+
 .main-menu a.navbar-brand {
     color: #b4d518;
     font-size: 22px;
 }
+
 a.navbar-brand:focus {
     outline: none;
     /* box-shadow: none; */
 }
+
 .main-menu a.navbar-brand:hover {
     color: #b4d518;
 }
+
 .main-menu ul {
     font-size: 18px;
     font-weight: 500;
     padding-top: 5px;
 }
+
 .main-menu li {
     margin-right: 20px;
 }
+
 .main-menu li:last-child {
     /* Remove o margin do último item para evitar espaçamento extra */
     margin-right: 0;
 }
+
 .main-menu li a {
     color: #fff;
     text-decoration: none;
@@ -43,22 +50,27 @@ a.navbar-brand:focus {
     align-items: center;
     gap: 4px;
 }
+
 .main-menu li a:focus {
     outline: none;
     /* Remove o contorno padrão do link */
     box-shadow: none;
     /* Remove o efeito de sombra ao focar no link */
 }
+
 .main-menu li a:hover {
     color: #b4d518;
 }
+
 .main-menu li a svg {
     margin-right: 4px;
     transition: fill 0.3s;
 }
+
 .main-menu li a:hover svg {
     fill: #b4d518;
 }
+
 button.btn-custom-buscar {
     background-color: #b4d518;
     border: none;
@@ -66,8 +78,60 @@ button.btn-custom-buscar {
     /* texto escuro para bom contraste */
     transition: background-color 0.3s ease;
 }
+
 button.btn-custom-buscar:hover {
     background-color: #a0c116;
     /* tom um pouco mais escuro ao passar o mouse */
     color: #000;
+}
+
+
+
+/* Estilo para a section de categorias na página inicial */
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+
+
+.category-container {
+    gap: 20px;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+.category-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-card p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
 }

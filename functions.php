@@ -13,6 +13,8 @@ function vitrine_enqueue_styles()
 
     //carrega o script do bootstrap
     wp_enqueue_script('bootstrap-min-js', get_stylesheet_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array('jquery'), '5.0.2', true);  
+
+
 }
 add_action('wp_enqueue_scripts', 'vitrine_enqueue_styles');
 

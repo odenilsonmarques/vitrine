@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 
 <main>
-    <h2>Conteúdo Principal</h2>
+    <?php get_template_part('parts/content', 'category'); ?>
+    <?php get_template_part('parts/content', 'product'); ?>
 </main>
 
 <?php get_footer(); ?>
