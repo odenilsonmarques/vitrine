@@ -14,8 +14,20 @@
             if ($query->have_posts()) :
                 while ($query->have_posts()) : $query->the_post();
                     global $product;
+
+                    // PEGAR CATEGORIAS DO PRODUTO (para o filtro)
+                    $terms   = get_the_terms(get_the_ID(), 'product_cat');
+                    $cat_ids = [];
+
+                    if ($terms && !is_wp_error($terms)) {
+                        foreach ($terms as $term) {
+                            $cat_ids[] = $term->term_id;
+                        }
+                    }
             ?>
-                    <div class="col-12 col-md-4 col-lg-3 mb-4">
+                    <!-- nessa div abaixo adicionar atributo data-categories com as categorias do produto -->
+                    <div class="col-12 col-md-4 col-lg-3 mb-4 product-card"
+                        data-categories="<?php echo implode(',', $cat_ids); ?>">
                         <div class="card h-100">
 
                             <a href="<?php the_permalink(); ?>">

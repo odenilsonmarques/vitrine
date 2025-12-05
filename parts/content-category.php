@@ -1,7 +1,7 @@
 <section class="category">
     <div class="container">
         <div class="categories-section text-center mt-2">
-            <h3 class="category-title mb-4 mt-2">Categorias</h3>
+            <h3 class="category-title mb-4 mt-5 mb-4">Categorias</h3>
             <div class="category-container text-center mb-5 d-none d-md-flex justify-content-center flex-wrap">
                 <!-- Exibe a opção "Todos" -->
                 <div class="category-card filter-btn active" data-category="">

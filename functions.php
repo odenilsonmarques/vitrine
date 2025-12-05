@@ -14,6 +14,8 @@ function vitrine_enqueue_styles()
     //carrega o script do bootstrap
     wp_enqueue_script('bootstrap-min-js', get_stylesheet_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array('jquery'), '5.0.2', true);  
 
+    //carrega o script para filtrar produtos por categoria
+    wp_enqueue_script('filter-products', get_stylesheet_directory_uri() . '/assets/js/filter-products.js', array(), '1.0', true);
 
 }
 add_action('wp_enqueue_scripts', 'vitrine_enqueue_styles');
