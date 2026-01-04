@@ -159,58 +159,127 @@ get_header('shop'); ?>
 		</div>
 
 		<!-- Coluna da direita: preço, variações, botão de comprar -->
-		<div class="col-md-2 mt-4 ms-md-3">
+		<div class="col-md-3 mt-4">
 			<div class="purchase-box details-bg rounded-3 p-3 shadow-sm">
-				<!-- Preço -->
-				<?php woocommerce_template_single_price(); ?>
 
-				<!-- Formulário de adicionar ao carrinho. Variações / Quantidade / Botão -->
-				<?php woocommerce_template_single_add_to_cart(); ?>
+				<!-- Preço -->
+				<div class="product-price mb-3">
+					<?php woocommerce_template_single_price(); ?>
+				</div>
+
+
+				<!-- Exibe o valor total dos produtos agrupados -->
+				<div class="grouped-total mt-3 mb-3">
+					<span class="total-label">Total:</span>
+					<span class="total-price">R$ 0,00</span>
+				</div>
+
+
+				<!-- Produtos agrupados / Botão -->
+				<div class="grouped-products">
+					<?php woocommerce_template_single_add_to_cart(); ?>
+				</div>
+
+				
 
 				<!-- Info vendedor -->
 				<div class="seller-info text-muted small mt-3">
 					Vendido e entregue por <?php echo esc_html(get_bloginfo('name')); ?>
 				</div>
+
 			</div>
-
-			<style>
-				/* Caixa de compra */
-				.purchase-box {
-					background-color: #ffffff;
-				}
-
-				/* Preço */
-				.purchase-box .price {
-					font-size: 1.8rem;
-					font-weight: 700;
-					color: #212529;
-					margin-bottom: 0;
-				}
-
-				/* Botão de compra */
-				.purchase-box .single_add_to_cart_button {
-					width: 100%;
-					padding: 12px;
-					font-size: 1rem;
-					font-weight: 600;
-				}
-
-				/* Quantidade */
-				.purchase-box .quantity {
-					margin-bottom: 10px;
-				}
-
-				/* Produtos agrupados */
-				.purchase-box table.group_table {
-					width: 100%;
-				}
-
-				.purchase-box table.group_table td {
-					vertical-align: middle;
-					padding: 6px 0;
-				}
-			</style>
 		</div>
+
+		<style>
+			.purchase-box .price {
+				font-size: 1.6rem;
+				font-weight: 700;
+				color: #212529;
+			}
+
+			.purchase-box .price del {
+				color: #adb5bd;
+				font-size: 1rem;
+			}
+
+			.purchase-box .price ins {
+				text-decoration: none;
+			}
+
+
+			/* Tabela do grouped product */
+			.purchase-box table.group_table {
+				width: 100%;
+				border-collapse: separate;
+				border-spacing: 0 10px;
+			}
+
+			/* Cada produto vira um "mini card" */
+			.purchase-box table.group_table tr {
+				background: #f8f9fa;
+				border-radius: 8px;
+			}
+
+			/* Células */
+			.purchase-box table.group_table td {
+				vertical-align: middle;
+				padding: 8px;
+			}
+
+			/* Campo quantidade */
+			.purchase-box .quantity input {
+				width: 60px;
+				text-align: center;
+			}
+
+			/* Nome do produto */
+			.purchase-box table.group_table label a {
+				font-weight: 600;
+				color: #212529;
+				text-decoration: none;
+			}
+
+			.purchase-box table.group_table label a:hover {
+				text-decoration: underline;
+			}
+
+			/* Preço do item */
+			.purchase-box table.group_table .price {
+				font-size: 0.95rem;
+				font-weight: 600;
+			}
+
+
+			.purchase-box .single_add_to_cart_button {
+				width: 100%;
+				padding: 14px;
+				font-size: 1rem;
+				font-weight: 700;
+				border-radius: 6px;
+			}
+
+
+
+			.grouped-total {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 12px;
+				background: #f1f3f5;
+				border-radius: 8px;
+				font-size: 1.1rem;
+			}
+
+			.grouped-total .total-label {
+				font-weight: 600;
+				color: #495057;
+			}
+
+			.grouped-total .total-price {
+				font-weight: 700;
+				color: #212529;
+			}
+		</style>
 
 
 
