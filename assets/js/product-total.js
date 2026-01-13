@@ -17,25 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
         );
     }
 
-    function getSimpleProductTotal() {
-        // Preço (prioriza promocional)
-        let priceEl = document.querySelector('.purchase-box ins .woocommerce-Price-amount');
-
-        if (!priceEl) {
-            priceEl = document.querySelector('.purchase-box .woocommerce-Price-amount');
-        }
-
-        if (!priceEl) return 0;
-
-        const price = parsePrice(priceEl.textContent);
-        if (isNaN(price)) return 0;
-
-        // Quantidade
-        const qtyInput = document.querySelector('.purchase-box input.qty');
-        const qty = qtyInput ? parseInt(qtyInput.value, 10) : 1;
-
-        return price * (qty > 0 ? qty : 1);
-    }
 
     function getGroupedTotal() {
         let total = 0;
@@ -69,17 +50,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateTotal() {
-        const totalEl = document.querySelector('.grouped-total .total-price');
-        if (!totalEl) return;
+        const totalBox = document.querySelector('.grouped-total');
+        if (!totalBox) return;
 
-        // Produto agrupado
+        // Se for produto agrupado → mostrar total
         if (document.querySelector('.group_table')) {
-            totalEl.textContent = formatPrice(getGroupedTotal());
+            const priceEl = totalBox.querySelector('.total-price');
+            priceEl.textContent = formatPrice(getGroupedTotal());
+            totalBox.style.display = 'flex';
         } else {
-            // Produto simples / variável
-            totalEl.textContent = formatPrice(getSimpleProductTotal());
+            // Produto simples ou variável → esconder total
+            totalBox.style.display = 'none';
         }
     }
+
 
     // Eventos
     document.addEventListener('input', function (e) {

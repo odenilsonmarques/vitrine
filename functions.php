@@ -19,7 +19,7 @@ function vitrine_enqueue_styles()
     wp_enqueue_script('filter-products', get_stylesheet_directory_uri() . '/assets/js/filter-products.js', array(), '1.0', true);
 
     //carrega o script para calcular o total do produto agrupado
-    wp_enqueue_script('product-total', get_stylesheet_directory_uri() . '/assets/js/product-total.js', array(), '1.1', true);
+    wp_enqueue_script('product-total', get_stylesheet_directory_uri() . '/assets/js/product-total.js', array(), '1.5', true);
         
 }
 add_action('wp_enqueue_scripts', 'vitrine_enqueue_styles');

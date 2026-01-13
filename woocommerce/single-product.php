@@ -45,12 +45,17 @@ get_header('shop'); ?>
 				</div>
 			</div>
 
-			<p class="text-dark"><strong>Referência:</strong> <?php echo get_post_meta(get_the_ID(), '_sku', true); ?></p>
+
+
+			<p class="text-dark mb-2">
+				<strong>Referência:</strong> <?php echo get_post_meta(get_the_ID(), '_sku', true); ?>
+			</p>
+
 
 			<!-- Descrição -->
 			<?php if (has_excerpt()) : ?>
 				<div class="product-short-description">
-					<strong class="d-block mb-1">Descrição</strong>
+					<span class="description-label">Detalhes do produto</span>
 					<?php the_excerpt(); ?>
 				</div>
 			<?php endif; ?>
@@ -73,6 +78,15 @@ get_header('shop'); ?>
 					margin-bottom: 0;
 					font-size: 0.95rem;
 					line-height: 1.5;
+				}
+
+				.description-label {
+					display: block;
+					font-size: 0.75rem;
+					text-transform: uppercase;
+					letter-spacing: 0.05em;
+					color: #6c757d;
+					margin-bottom: 6px;
 				}
 			</style>
 		</div>
@@ -163,9 +177,132 @@ get_header('shop'); ?>
 			<div class="purchase-box details-bg rounded-3 p-3 shadow-sm">
 
 				<!-- Preço -->
-				<div class="product-price mb-3">
+				<div class="product-price mb-2">
+					<span class="price-label">A partir de</span>
 					<?php woocommerce_template_single_price(); ?>
 				</div>
+
+				<style>
+					/* Rótulo do preço */
+					.price-label {
+						display: block;
+						font-size: 0.85rem;
+						color: #6c757d;
+						margin-bottom: 4px;
+					}
+
+					/* Container do preço */
+					.product-price .price {
+						display: flex;
+						align-items: center;
+						gap: 6px;
+						font-size: 10px;
+						font-weight: 700;
+						white-space: nowrap;
+					}
+
+					/* O hífen */
+					.product-price .price .woocommerce-Price-amount {
+						white-space: nowrap;
+					}
+
+					/* Wrapper da área de compra */
+					.purchase-box form.cart {
+						display: flex;
+						flex-direction: column;
+					}
+
+					/* Campo quantidade */
+					.purchase-box .quantity {
+						margin-bottom: 12px;
+					}
+
+					/* Input da quantidade */
+					.purchase-box .quantity input.qty {
+						width: 100%;
+						height: 44px;
+						text-align: center;
+						font-size: 1.1rem;
+						border-radius: 6px;
+					}
+
+					/* Botão adicionar ao carrinho */
+					.purchase-box .single_add_to_cart_button {
+						width: 100%;
+						height: 48px;
+						margin-top: 6px;
+						font-size: 1rem;
+						font-weight: 600;
+						border-radius: 8px;
+					}
+
+
+					/* Container das variações */
+					.purchase-box .variations {
+						width: 100%;
+					}
+
+					/* Linha da variação */
+					/* Linha da variação vira coluna */
+					.purchase-box .variations tr {
+						display: block;
+					}
+
+					/* Remove estrutura de tabela do WooCommerce */
+					.purchase-box .variations {
+						display: block;
+					}
+
+					/* Label (ex: color) */
+					.purchase-box .variations label {
+						font-size: 1.2rem;
+						font-weight: 500;
+						/* margin-bottom: 4px; */
+						color: #495057;
+					}
+
+					/* Remove padding interno herdado */
+					.purchase-box .variations th,
+					.purchase-box .variations td {
+						padding-left: 0 !important;
+						padding-right: 0 !important;
+					}
+
+					/* Remove espaço do <th> (label) */
+					.purchase-box .variations th.label {
+						display: block;
+						padding: 0;
+						margin: 0 0 4px 0;
+						text-align: left;
+					}
+
+					/* Coluna do select */
+					.purchase-box .variations td.value {
+						padding: 0;
+					}
+
+
+
+					/* Select de variação */
+					.purchase-box .variations select {
+						width: 100%;
+						height: 44px;
+						padding: 6px 10px;
+						border-radius: 6px;
+						font-size: 0.95rem;
+					}
+
+					/* Remove espaçamentos extras do WooCommerce */
+					.purchase-box .variations td {
+						padding: 0 !important;
+						background: transparent;
+					}
+
+					/* Remove aquele fundo branco exagerado */
+					.purchase-box .variations tr {
+						background: transparent;
+					}
+				</style>
 
 
 				<!-- Exibe o valor total dos produtos agrupados -->
@@ -180,7 +317,7 @@ get_header('shop'); ?>
 					<?php woocommerce_template_single_add_to_cart(); ?>
 				</div>
 
-				
+
 
 				<!-- Info vendedor -->
 				<div class="seller-info text-muted small mt-3">
