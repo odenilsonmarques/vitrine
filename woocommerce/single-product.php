@@ -22,8 +22,6 @@ if (! defined('ABSPATH')) {
 
 get_header('shop'); ?>
 
-
-
 <div class="container mt-5 mb-3">
 	<div class="row">
 		<!-- esta funcao é responsavel por mostrar mensagens de erro ou sucesso do woocommerce  -->
@@ -45,12 +43,9 @@ get_header('shop'); ?>
 				</div>
 			</div>
 
-
-
 			<p class="text-dark mb-2">
 				<strong>Referência:</strong> <?php echo get_post_meta(get_the_ID(), '_sku', true); ?>
 			</p>
-
 
 			<!-- Descrição -->
 			<?php if (has_excerpt()) : ?>
@@ -59,38 +54,7 @@ get_header('shop'); ?>
 					<?php the_excerpt(); ?>
 				</div>
 			<?php endif; ?>
-
-			<style>
-				.details-bg {
-					background-color: #f8f9fa;
-				}
-
-				.product-meta a {
-					color: #0d6efd;
-					text-decoration: none;
-				}
-
-				.product-meta a:hover {
-					text-decoration: underline;
-				}
-
-				.product-short-description p {
-					margin-bottom: 0;
-					font-size: 0.95rem;
-					line-height: 1.5;
-				}
-
-				.description-label {
-					display: block;
-					font-size: 0.75rem;
-					text-transform: uppercase;
-					letter-spacing: 0.05em;
-					color: #6c757d;
-					margin-bottom: 6px;
-				}
-			</style>
 		</div>
-
 
 		<!-- Coluna do meio: imagem principal e galeria -->
 		<div class="col-md-6 mt-4">
@@ -105,205 +69,16 @@ get_header('shop'); ?>
 			<div class="product-gallery-wrapper bg-light border rounded-3 p-3 shadow-sm">
 				<?php woocommerce_show_product_images(); ?>
 			</div>
-
-			<style>
-				/* Wrapper da galeria */
-				.product-gallery-wrapper {
-					display: flex;
-					justify-content: center;
-				}
-
-				/* Galeria do WooCommerce */
-				.woocommerce-product-gallery {
-					max-width: 420px;
-					width: 100%;
-					margin: 0 auto;
-				}
-
-				/* Imagem principal */
-				.woocommerce-product-gallery__image img {
-					border-radius: 8px;
-				}
-
-				/* Miniaturas */
-				.woocommerce-product-gallery__wrapper ol {
-					padding-left: 0;
-					margin-top: 10px;
-				}
-
-				.woocommerce-product-gallery__wrapper li {
-					list-style: none;
-					margin-right: 6px;
-				}
-
-				/* Miniaturas lado a lado (horizontal) */
-				.woocommerce-product-gallery .flex-control-thumbs {
-					display: flex;
-					gap: 8px;
-					justify-content: center;
-					padding: 0;
-					margin-top: 10px;
-				}
-
-				/* Remove estilo de lista */
-				.woocommerce-product-gallery .flex-control-thumbs li {
-					list-style: none;
-					margin: 0;
-					width: auto !important;
-				}
-
-				/* Imagens das miniaturas */
-				.woocommerce-product-gallery .flex-control-thumbs img {
-					width: 70px;
-					height: auto;
-					border-radius: 6px;
-					border: 1px solid #dee2e6;
-					cursor: pointer;
-					opacity: 0.8;
-					transition: all .2s ease-in-out;
-				}
-
-				/* Hover / ativo */
-				.woocommerce-product-gallery .flex-control-thumbs img:hover,
-				.woocommerce-product-gallery .flex-control-thumbs img.flex-active {
-					opacity: 1;
-					border-color: #0d6efd;
-				}
-			</style>
 		</div>
 
 		<!-- Coluna da direita: preço, variações, botão de comprar -->
 		<div class="col-md-3 mt-4">
 			<div class="purchase-box details-bg rounded-3 p-3 shadow-sm">
-
 				<!-- Preço -->
 				<div class="product-price mb-2">
 					<span class="price-label">A partir de</span>
 					<?php woocommerce_template_single_price(); ?>
 				</div>
-
-				<style>
-					/* Rótulo do preço */
-					.price-label {
-						display: block;
-						font-size: 0.85rem;
-						color: #6c757d;
-						margin-bottom: 4px;
-					}
-
-					/* Container do preço */
-					.product-price .price {
-						display: flex;
-						align-items: center;
-						gap: 6px;
-						font-size: 10px;
-						font-weight: 700;
-						white-space: nowrap;
-					}
-
-					/* O hífen */
-					.product-price .price .woocommerce-Price-amount {
-						white-space: nowrap;
-					}
-
-					/* Wrapper da área de compra */
-					.purchase-box form.cart {
-						display: flex;
-						flex-direction: column;
-					}
-
-					/* Campo quantidade */
-					.purchase-box .quantity {
-						margin-bottom: 12px;
-					}
-
-					/* Input da quantidade */
-					.purchase-box .quantity input.qty {
-						width: 100%;
-						height: 44px;
-						text-align: center;
-						font-size: 1.1rem;
-						border-radius: 6px;
-					}
-
-					/* Botão adicionar ao carrinho */
-					.purchase-box .single_add_to_cart_button {
-						width: 100%;
-						height: 48px;
-						margin-top: 6px;
-						font-size: 1rem;
-						font-weight: 600;
-						border-radius: 8px;
-					}
-
-
-					/* Container das variações */
-					.purchase-box .variations {
-						width: 100%;
-					}
-
-					/* Linha da variação */
-					/* Linha da variação vira coluna */
-					.purchase-box .variations tr {
-						display: block;
-					}
-
-					/* Remove estrutura de tabela do WooCommerce */
-					.purchase-box .variations {
-						display: block;
-					}
-
-					/* Label (ex: color) */
-					.purchase-box .variations label {
-						font-size: 1.2rem;
-						font-weight: 500;
-						/* margin-bottom: 4px; */
-						color: #495057;
-					}
-
-					/* Remove padding interno herdado */
-					.purchase-box .variations th,
-					.purchase-box .variations td {
-						padding-left: 0 !important;
-						padding-right: 0 !important;
-					}
-
-					/* Remove espaço do <th> (label) */
-					.purchase-box .variations th.label {
-						display: block;
-						padding: 0;
-						margin: 0 0 4px 0;
-						text-align: left;
-					}
-
-					/* Coluna do select */
-					.purchase-box .variations td.value {
-						padding: 0;
-					}
-
-
-
-					/* Select de variação */
-					.purchase-box .variations select {
-						width: 100%;
-						height: 44px;
-						padding: 6px 10px;
-						border-radius: 6px;
-						font-size: 0.95rem;
-					}
-
-					/* Remove espaçamentos extras do WooCommerce */
-					.purchase-box .variations td {
-						padding: 0 !important;
-						background: transparent;
-					}
-
-					/* Remove aquele fundo branco exagerado */
-					.purchase-box .variations tr {
-						background: transparent;
-					}
-				</style>
-
 
 				<!-- Exibe o valor total dos produtos agrupados -->
 				<div class="grouped-total mt-3 mb-3">
@@ -311,122 +86,35 @@ get_header('shop'); ?>
 					<span class="total-price">R$ 0,00</span>
 				</div>
 
-
 				<!-- Produtos agrupados / Botão -->
 				<div class="grouped-products">
 					<?php woocommerce_template_single_add_to_cart(); ?>
 				</div>
 
-
-
 				<!-- Info vendedor -->
 				<div class="seller-info text-muted small mt-3">
 					Vendido e entregue por <?php echo esc_html(get_bloginfo('name')); ?>
 				</div>
-
 			</div>
 		</div>
-
-		<style>
-			.purchase-box .price {
-				font-size: 1.6rem;
-				font-weight: 700;
-				color: #212529;
-			}
-
-			.purchase-box .price del {
-				color: #adb5bd;
-				font-size: 1rem;
-			}
-
-			.purchase-box .price ins {
-				text-decoration: none;
-			}
-
-
-			/* Tabela do grouped product */
-			.purchase-box table.group_table {
-				width: 100%;
-				border-collapse: separate;
-				border-spacing: 0 10px;
-			}
-
-			/* Cada produto vira um "mini card" */
-			.purchase-box table.group_table tr {
-				background: #f8f9fa;
-				border-radius: 8px;
-			}
-
-			/* Células */
-			.purchase-box table.group_table td {
-				vertical-align: middle;
-				padding: 8px;
-			}
-
-			/* Campo quantidade */
-			.purchase-box .quantity input {
-				width: 60px;
-				text-align: center;
-			}
-
-			/* Nome do produto */
-			.purchase-box table.group_table label a {
-				font-weight: 600;
-				color: #212529;
-				text-decoration: none;
-			}
-
-			.purchase-box table.group_table label a:hover {
-				text-decoration: underline;
-			}
-
-			/* Preço do item */
-			.purchase-box table.group_table .price {
-				font-size: 0.95rem;
-				font-weight: 600;
-			}
-
-
-			.purchase-box .single_add_to_cart_button {
-				width: 100%;
-				padding: 14px;
-				font-size: 1rem;
-				font-weight: 700;
-				border-radius: 6px;
-			}
-
-
-
-			.grouped-total {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				padding: 12px;
-				background: #f1f3f5;
-				border-radius: 8px;
-				font-size: 1.1rem;
-			}
-
-			.grouped-total .total-label {
-				font-weight: 600;
-				color: #495057;
-			}
-
-			.grouped-total .total-price {
-				font-weight: 700;
-				color: #212529;
-			}
-		</style>
-
-
-
-		<?php
-		get_footer('shop');
-		?>
 	</div>
+
+	<!-- PRODUTOS RELACIONADOS -->
+	<div class="row mt-5">
+		<div class="col-12">
+
+			<?php
+			woocommerce_output_related_products(array(
+				'posts_per_page' => 4,
+				'columns'        => 4,
+			));
+			?>
+
+		</div>
+	</div>
+
+
 </div>
 
 <?php
 get_footer('shop');
-
-/* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
