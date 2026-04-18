@@ -45,10 +45,11 @@
                     <input type="hidden" name="post_type" value="product" />
                 </form>
 
-                <!-- MENU À DIREITA -->
-                <div class="collapse navbar-collapse flex-grow-0 " id="navbarNav">
+                <!-- MENU À DIREITA (desktop) -->
+                <div class="collapse navbar-collapse flex-grow-0 d-none d-lg-flex" id="navbarNav">
                     <ul class="navbar-nav main-menu d-flex align-items-center">
                         <?php
+                        // Mostrar menu padrão apenas em telas grandes.
                         wp_nav_menu(array(
                             'theme_location'  => 'top_menu',
                             'container'       => false,
@@ -61,6 +62,28 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Offcanvas do menu mobile -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Fechar menu"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <?php
+                    // Exibe o mesmo menu dentro do offcanvas para dispositivos móveis.
+                    wp_nav_menu(array(
+                        'theme_location'  => 'top_menu',
+                        'container'       => false,
+                        'menu_class'      => 'navbar-nav',
+                        'fallback_cb'     => '__return_false',
+                        'items_wrap'      => '%3$s',
+                    ));
+                    ?>
+                </ul>
+            </div>
+        </div>
     </header>
 
     <!-- essas tag estao sendo fechadas no footer.php -->
