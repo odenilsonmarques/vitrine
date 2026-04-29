@@ -19,7 +19,7 @@ function vitrine_enqueue_styles()
     wp_enqueue_script('filter-products', get_stylesheet_directory_uri() . '/assets/js/filter-products.js', array(), '1.0', true);
 
     //carrega o script para calcular o total do produto agrupado
-    wp_enqueue_script('product-total', get_stylesheet_directory_uri() . '/assets/js/product-total.js', array(), '1.5', true);
+    // wp_enqueue_script('product-total', get_stylesheet_directory_uri() . '/assets/js/product-total.js', array(), '1.5', true);
 
     //carrega o script para busca em tempo real (live search)
     wp_enqueue_script('live-search', get_stylesheet_directory_uri() . '/assets/js/live-search.js', array('jquery'), '1.0', true);
